@@ -30,8 +30,4 @@ public class CategoryTest {
 		assertEquals(description, category.getDescription());
 	}
 
-	@Test
-	public void testGetRecipes() {
-	}
-
 }
