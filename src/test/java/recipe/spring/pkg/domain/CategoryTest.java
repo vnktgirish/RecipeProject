@@ -25,12 +25,13 @@ public class CategoryTest {
 
 	@Test
 	public void testGetDescription() {
-		fail("Not yet implemented");
+		String description = "Description";
+		category.setDescription(description);
+		assertEquals(description, category.getDescription());
 	}
 
 	@Test
 	public void testGetRecipes() {
-		fail("Not yet implemented");
 	}
 
 }
