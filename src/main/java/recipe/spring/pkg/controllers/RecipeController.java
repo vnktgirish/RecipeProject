@@ -50,7 +50,7 @@ public class RecipeController {
 	@RequestMapping("recipe")
 	public String saveOrUpdate(@ModelAttribute RecipeCommand command) {
 		RecipeCommand savedCommand = recipeService.saveRecipeCommand(command);
-		return "redirect:/recipe/show/"+savedCommand.getId();
+		return "redirect:/recipe/"+savedCommand.getId()+"/show";
 	}
 	@GetMapping
 	@RequestMapping("recipe/{id}/delete")
