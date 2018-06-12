@@ -93,11 +93,13 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
 		guacRecipe.setCookTime(0);
 		guacRecipe.setDifficulty(Difficulty.EASY);
 		guacRecipe.setDirections("Here are the directions");
+		guacRecipe.setSource("Simple Recipe");
+		guacRecipe.setUrl("http://www.google.com");
 		
 		Notes guacNotes = new Notes();
 		guacNotes.setRecipeNotes("This part is for notes.");
-		guacNotes.setRecipe(guacRecipe);
-		// guacRecipe.setNotes(guacNotes);
+		// guacNotes.setRecipe(guacRecipe);
+		guacRecipe.setNotes(guacNotes);
 		
 		guacRecipe.addIngredient((new Ingredient("ripe avocados", new BigDecimal(2), eachUom)));
 		guacRecipe.addIngredient((new Ingredient("Kushar Salt", new BigDecimal(2), teaSpoonUom)));
@@ -115,11 +117,13 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
 		chickenRecipe.setCookTime(0);
 		chickenRecipe.setDifficulty(Difficulty.EASY);
 		chickenRecipe.setDirections("Here are the directions");
+		chickenRecipe.setSource("YouTube");
+		chickenRecipe.setUrl("http://www.youtube.com");
 		
 		Notes chickenNotes = new Notes();
 		chickenNotes.setRecipeNotes("Chicken recipe notes.");
-		chickenNotes.setRecipe(guacRecipe);
-		// guacRecipe.setNotes(guacNotes);
+		// chickenNotes.setRecipe(guacRecipe);
+		chickenRecipe.setNotes(guacNotes);
 		
 		chickenRecipe.addIngredient((new Ingredient("Onions", new BigDecimal(4), eachUom)));
 		chickenRecipe.addIngredient((new Ingredient("Kushar Salt", new BigDecimal(2), pinchUom)));
