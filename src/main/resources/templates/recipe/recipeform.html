@@ -63,10 +63,10 @@
 							</div>
 							<div class="col-md-3 form-group">
 								<label for="difficulty">Example multiple select</label> <select
-									class="form-control" id="difficulty">
-									<option>Easy</option>
-									<option>Medium</option>
-									<option>Hard</option>
+									class="form-control" id="difficulty" th:field="*{difficulty}">
+									<option th:each="difficultyValue:${T(recipe.spring.pkg.domain.Difficulty).values()}"
+											th:value="${difficultyValue.name()}"
+											th:text="${difficultyValue.name()}">val</option>
 								</select>
 							</div>
 						</div>

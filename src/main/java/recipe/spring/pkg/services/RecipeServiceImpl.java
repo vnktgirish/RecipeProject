@@ -12,13 +12,14 @@ import recipe.spring.pkg.commands.RecipeCommand;
 import recipe.spring.pkg.converters.RecipeCommandToRecipe;
 import recipe.spring.pkg.converters.RecipeToRecipeCommand;
 import recipe.spring.pkg.domain.Recipe;
+import recipe.spring.pkg.exceptions.NotFoundException;
 import recipe.spring.pkg.repositories.RecipeRepository;
 
 @Service
 @Slf4j
 public class RecipeServiceImpl implements RecipeService {
 	
-	private RecipeRepository recipeRepository;
+	private final RecipeRepository recipeRepository;
 	private final RecipeCommandToRecipe recipeCommandToRecipe;
 	private final RecipeToRecipeCommand recipeToRecipeCommand;
 		
@@ -37,11 +38,12 @@ public class RecipeServiceImpl implements RecipeService {
 	}
 	 
 	@Override
-	public Recipe findById(long id) throws Exception {
+	public Recipe findById(Long id) {
 		Optional<Recipe> recipeOptional = recipeRepository.findById(id);
 		
 		if (!recipeOptional.isPresent()) {
-			throw new Exception("Recipe not found");
+			log.info("Recipe not found");
+			throw new NotFoundException("Recipe Not Found");
 		}
 		
 		return recipeOptional.get();
@@ -59,16 +61,11 @@ public class RecipeServiceImpl implements RecipeService {
 	@Override
 	@Transactional
 	public RecipeCommand findCommandById(Long id) {
-		try {
 			return recipeToRecipeCommand.convert(findById(id));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null; 
 	}
 
 	@Override
-	public void deleteById(long id) {
+	public void deleteById(Long id) {
 		recipeRepository.deleteById(id);
 	} 
 

@@ -7,9 +7,9 @@ import recipe.spring.pkg.domain.Recipe;
 
 public interface RecipeService {
 	Set<Recipe> getRecipeList();
-	Recipe findById(long id) throws Exception;
+	Recipe findById(Long id);
 	
 	RecipeCommand saveRecipeCommand(RecipeCommand command);
-	RecipeCommand findCommandById(Long valueOf);
-	void deleteById(long id);
+	RecipeCommand findCommandById(Long id);
+	void deleteById(Long id);
 }

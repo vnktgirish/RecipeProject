@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+	crossorigin="anonymous"
+	th:href="@{/webjars/bootstrap/4.1.1/css/bootstrap.min.css}">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"
+	th:href="@{/webjars/jquery/3.3.1-1/css/jquery-3.3.1.min.js}"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+	integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+	crossorigin="anonymous"
+	th:href="@{/webjars/bootstrap/4.1.1/css/bootstrap.min.js}"></script>
+</head>
+<body>
+	<div class="container-fluid" style="margin-top: 20px">
+		<div class="row justify-content-md-center">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="card card-primary">
+					<div class="card-header text-white bg-info mb-2">
+						<h1>Upload a new recipe image</h1>
+						<a href="#" class="text-white"
+							th:href="@{'/recipe/'+${recipe.id}+'/ingredient/'+'new'}">New</a>
+					</div>
+					<div class="card-body text-white bg-info mb-2">
+						<div class="row">
+							<div class="col-md-5">
+								<form action="" method="post" enctype="multipart/form-data" th:action="@{'/recipe/'+${recipe.id}+'/image'}">
+									<label class="control-label">Select File</label>
+									<input id="imagefile" name="imagefile" type="file" class="file"/>
+									<button type="submit" class="btn btn-primary">Submit</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
