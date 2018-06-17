@@ -1,7 +1,5 @@
 package recipe.spring.pkg.controllers;
 
-import static org.assertj.core.api.Assertions.in;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

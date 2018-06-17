@@ -60,10 +60,11 @@ public class RecipeController {
 
 	@ResponseStatus(HttpStatus.NOT_FOUND)
 	@ExceptionHandler(NotFoundException.class)
-	public ModelAndView handlerNotFound() {
+	public ModelAndView handlerNotFound(Exception exception) {
 		log.error("Handling not found error.");
 		ModelAndView mAndView = new ModelAndView();
 		mAndView.setViewName("404error");
+		mAndView.addObject("exception", exception);
 		return mAndView;
 	}
 
