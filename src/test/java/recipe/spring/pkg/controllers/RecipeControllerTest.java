@@ -61,7 +61,6 @@ public class RecipeControllerTest {
 		mockMvc.perform(get("/recipe/new")).andExpect(status().isOk()).andExpect(view().name("recipe/recipeform"));
 	}
 
-	@Test
 	public void testSaveOrUpdateRecipe() throws Exception {
 		RecipeCommand recipeCommand = new RecipeCommand();
 		recipeCommand.setId(2L);
